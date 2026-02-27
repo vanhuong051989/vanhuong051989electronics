@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Samus Electronics</title>
+<style>
+body{
+  font-family: Arial;
+  background:#f2f2f2;
+  margin:0;
+}
+.header{
+  background:#111;
+  color:white;
+  padding:15px;
+  text-align:center;
+  font-size:20px;
+}
+
+/* Lưới sản phẩm */
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;
+  padding:20px;
+}
+
+.product{
+  background:white;
+  padding:10px;
+  border-radius:10px;
+  box-shadow:0 0 10px rgba(0,0,0,0.1);
+  text-align:center;
+}
+
+.product img{
+  width:100%;
+  border-radius:8px;
+}
+
+.price{
+  color:red;
+  font-weight:bold;
+}
+
+button{
+  background:green;
+  color:white;
+  border:none;
+  padding:8px;
+  width:100%;
+  cursor:pointer;
+}
+
+button:hover{
+  background:darkgreen;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+SAMUS ELECTRONICS
+</div>
+
+<div class="products">
+
+<div class="product">
+<h3>Máy Kích Cá 1500W</h3>
+<img src="https://via.placeholder.com/300x200">
+<p class="price">2.500.000đ</p>
+<button onclick="order('Máy Kích Cá 1500W')">Đặt qua Zalo</button>
+</div>
+
+<div class="product">
+<h3>Bo Mạch 1000W</h3>
+<img src="https://via.placeholder.com/300x200">
+<p class="price">1.200.000đ</p>
+<button onclick="order('Bo Mạch 1000W')">Đặt qua Zalo</button>
+</div>
+
+<div class="product">
+<h3>Bo Công Suất Rời</h3>
+<img src="https://via.placeholder.com/300x200">
+<p class="price">800.000đ</p>
+<button onclick="order('Bo Công Suất Rời')">Đặt qua Zalo</button>
+</div>
+
+<div class="product">
+<h3>Bình Ắc Quy 24V</h3>
+<img src="https://via.placeholder.com/300x200">
+<p class="price">1.500.000đ</p>
+<button onclick="order('Bình Ắc Quy 24V')">Đặt qua Zalo</button>
+</div>
+
+</div>
+
+<script>
+function order(productName){
+  var message = "Tôi muốn đặt sản phẩm: " + productName;
+  window.open("https://zalo.me/098XXXXXXX?text=" + message);
+}
+</script>
+
+</body>
+</html>
