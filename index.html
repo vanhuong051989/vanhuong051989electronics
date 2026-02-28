@@ -1,42 +1,108 @@
-<div style="border:1px solid #ccc; padding:15px; margin-bottom:30px;">
-    
-    <h2>SOCKET6800G-24VDC</h2>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Samus Electronics</title>
 
-    <div style="display:flex; gap:10px; flex-wrap:wrap;">
-        <img src="SOCKET6800G.jpg" width="250">
-        <img src="SOCKET6800G02.jpg" width="250">
-        <img src="SOCKET6800G03.jpg" width="250">
+<style>
+body{
+    font-family: Arial;
+    background:#f2f2f2;
+    margin:20px;
+}
+
+.products{
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+    gap:20px;
+}
+
+.item{
+    background:white;
+    padding:15px;
+    border-radius:8px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+.item h3{
+    margin:5px 0 10px 0;
+}
+
+.images{
+    display:flex;
+    gap:5px;
+}
+
+.images img{
+    width:75px;
+    height:75px;
+    object-fit:cover;
+    border-radius:4px;
+}
+
+.price{
+    color:red;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+button{
+    margin-top:10px;
+    padding:6px 12px;
+    background:#007bff;
+    color:white;
+    border:none;
+    border-radius:4px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0056b3;
+}
+</style>
+
+</head>
+<body>
+
+<h2>Danh sách sản phẩm</h2>
+
+<div class="products">
+
+    <!-- Sản phẩm 1 -->
+    <div class="item">
+        <h3>SOCKET6800G-24VDC</h3>
+
+        <div class="images">
+            <img src="SOCKET6800G.jpg">
+            <img src="SOCKET6800G02.jpg">
+            <img src="SOCKET6800G03.jpg">
+        </div>
+
+        <div class="price">Giá: 7.500.000</div>
+
+        <a href="https://zalo.me/0903659586" target="_blank">
+            <button>Liên hệ Zalo</button>
+        </a>
     </div>
 
-    <p><b>Giá: 7.500.000</b></p>
+    <!-- Sản phẩm 2 -->
+    <div class="item">
+        <h3>SOCKET1700M-12VDC</h3>
 
-    <a href="https://zalo.me/0936569586" target="_blank">
-        <button style="padding:10px 20px; background:blue; color:white; border:none;">
-            Liên hệ Zalo 0936.569.586
-        </button>
-    </a>
+        <div class="images">
+            <img src="SOCKET1700M.jpg">
+            <img src="SOCKET1700M02.jpg">
+            <img src="SOCKET1700M03.jpg">
+        </div>
 
-</div>
-<div style="border:1px solid #ccc; padding:15px; margin-bottom:30px;">
-    
-    <h2>SOCKET1700M-12VDC</h2>
+        <div class="price">Giá: 3.500.000</div>
 
-    <div style="display:flex; gap:10px; flex-wrap:wrap;">
-        <img src="SOCKET1700M.jpg" width="250">
-        <img src="SOCKET1700M02.jpg" width="250">
-        <img src="SOCKET1700M03.jpg" width="250">
+        <a href="https://zalo.me/0903659586" target="_blank">
+            <button>Liên hệ Zalo</button>
+        </a>
     </div>
 
-    <p><b>Giá: 3.500.000</b></p>
-
-    <a href="https://zalo.me/0936569586" target="_blank">
-        <button style="padding:10px 20px; background:blue; color:white; border:none;">
-            Liên hệ Zalo 0936.569.586
-        </button>
-    </a>
-
 </div>
 
-
-
-
+</body>
+</html>
