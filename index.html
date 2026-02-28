@@ -1,106 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Samus Electronics</title>
-<style>
-body{
-  font-family: Arial;
-  background:#f2f2f2;
-  margin:0;
-}
-.header{
-  background:#111;
-  color:white;
-  padding:15px;
-  text-align:center;
-  font-size:20px;
-}
+    <meta charset="UTF-8">
+    <title>Máy Kích Cá Samus</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+        }
 
-/* Lưới sản phẩm */
-.products{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:15px;
-  padding:20px;
-}
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            padding: 20px;
+        }
 
-.product{
-  background:white;
-  padding:10px;
-  border-radius:10px;
-  box-shadow:0 0 10px rgba(0,0,0,0.1);
-  text-align:center;
-}
+        .item {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
 
-.product img{
-  width:100%;
-  border-radius:8px;
-}
-
-.price{
-  color:red;
-  font-weight:bold;
-}
-
-button{
-  background:green;
-  color:white;
-  border:none;
-  padding:8px;
-  width:100%;
-  cursor:pointer;
-}
-
-button:hover{
-  background:darkgreen;
-}
-</style>
+        img {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
 
-<div class="header">
-SAMUS ELECTRONICS
-</div>
+<h2>Danh Sách Máy Kích Cá</h2>
 
-<div class="products">
+<div class="grid">
 
-<div class="product">
-<h3>Máy Kích Cá 1500W</h3>
-<img src="https://via.placeholder.com/300x200">
-<p class="price">2.500.000đ</p>
-<button onclick="order('Máy Kích Cá 1500W')">Đặt qua Zalo</button>
-</div>
+    <div class="item">
+        <a href="SOCKET-6800G.jpg">
+            <img src="SOCKET-6800G.jpg">
+        </a>
+        <p>Máy kích 1000W</p>
+    </div>
 
-<div class="product">
-<h3>Bo Mạch 1000W</h3>
-<img src="https://via.placeholder.com/300x200">
-<p class="price">1.200.000đ</p>
-<button onclick="order('Bo Mạch 1000W')">Đặt qua Zalo</button>
-</div>
+    <div class="item">
+        <a href="may2.jpg">
+            <img src="may2.jpg">
+        </a>
+        <p>Máy kích 2000W</p>
+    </div>
 
-<div class="product">
-<h3>Bo Công Suất Rời</h3>
-<img src="https://via.placeholder.com/300x200">
-<p class="price">800.000đ</p>
-<button onclick="order('Bo Công Suất Rời')">Đặt qua Zalo</button>
-</div>
-
-<div class="product">
-<h3>Bình Ắc Quy 24V</h3>
-<img src="https://via.placeholder.com/300x200">
-<p class="price">1.500.000đ</p>
-<button onclick="order('Bình Ắc Quy 24V')">Đặt qua Zalo</button>
-</div>
+    <div class="item">
+        <a href="may3.jpg">
+            <img src="may3.jpg">
+        </a>
+        <p>Bo mạch 150A</p>
+    </div>
 
 </div>
-
-<script>
-function order(productName){
-  var message = "Tôi muốn đặt sản phẩm: " + productName;
-  window.open("https://zalo.me/098XXXXXXX?text=" + message);
-}
-</script>
 
 </body>
 </html>
