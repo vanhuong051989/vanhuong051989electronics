@@ -11,7 +11,6 @@ body{
     background: linear-gradient(to right, #e3f2fd, #f1f8ff);
 }
 
-/* HEADER */
 .header{
     background:#0d47a1;
     color:white;
@@ -21,7 +20,6 @@ body{
     font-weight:bold;
 }
 
-/* FILTER */
 .filter{
     text-align:center;
     margin:20px;
@@ -37,7 +35,6 @@ body{
     color:white;
 }
 
-/* GRID */
 .products{
     display:grid;
     grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
@@ -58,7 +55,6 @@ body{
     transform:translateY(-5px);
 }
 
-/* HOT STAR */
 .hot{
     position:absolute;
     top:10px;
@@ -89,11 +85,6 @@ body{
     object-fit:cover;
     border-radius:6px;
     cursor:pointer;
-    transition:0.3s;
-}
-
-.images img:hover{
-    transform:scale(1.1);
 }
 
 .price{
@@ -102,19 +93,19 @@ body{
     margin-top:10px;
 }
 
-.views{
-    color:#1565c0;
-    font-weight:bold;
-    margin-top:5px;
-}
-
 .buy{
     color:#2e7d32;
     font-weight:bold;
     margin-top:5px;
 }
 
-button.contact{
+.views{
+    color:#1565c0;
+    font-weight:bold;
+    margin-top:5px;
+}
+
+.contact{
     margin-top:10px;
     padding:8px 15px;
     background:#1976d2;
@@ -124,7 +115,6 @@ button.contact{
     cursor:pointer;
 }
 
-/* FOOTER */
 .footer{
     background:#1565c0;
     color:white;
@@ -134,7 +124,6 @@ button.contact{
     border-left:6px solid #ffeb3b;
 }
 
-/* POPUP */
 .popup{
     display:none;
     position:fixed;
@@ -178,8 +167,7 @@ button.contact{
 
 <div class="products">
 
-<!-- SẢN PHẨM (7 sản phẩm giữ nguyên) -->
-
+<!-- SẢN PHẨM 1 -->
 <div class="item" data-price="7500000">
 <div class="hot">🔥 HOT</div>
 <h3>SOCKET6800G-LC-24VDC</h3>
@@ -192,10 +180,11 @@ button.contact{
 <div class="buy">Lượt mua: 58</div>
 <div class="views">Lượt xem: <span class="view-count">0</span></div>
 <a href="https://zalo.me/0936569586" target="_blank">
-<button class="contact">Liên hệ Zalo</button>
+<button class="contact">Liên hệ Zalo 0936.569.586</button>
 </a>
 </div>
 
+<!-- SẢN PHẨM 2 -->
 <div class="item" data-price="3500000">
 <h3>SOCKET1700M-LC-12VDC</h3>
 <div class="images">
@@ -206,8 +195,12 @@ button.contact{
 <div class="price">Giá: 3.500.000</div>
 <div class="buy">Lượt mua: 32</div>
 <div class="views">Lượt xem: <span class="view-count">0</span></div>
+<a href="https://zalo.me/0936569586" target="_blank">
+<button class="contact">Liên hệ Zalo 0936.569.586</button>
+</a>
 </div>
 
+<!-- SẢN PHẨM 3 -->
 <div class="item" data-price="3750000">
 <div class="hot">🔥 HOT</div>
 <h3>SOCKET1700H-CH-12VDC</h3>
@@ -219,8 +212,12 @@ button.contact{
 <div class="price">Giá: 3.750.000</div>
 <div class="buy">Lượt mua: 72</div>
 <div class="views">Lượt xem: <span class="view-count">0</span></div>
+<a href="https://zalo.me/0936569586" target="_blank">
+<button class="contact">Liên hệ Zalo 0936.569.586</button>
+</a>
 </div>
 
+<!-- SẢN PHẨM 4 -->
 <div class="item" data-price="8500000">
 <h3>SOCKET9800G-LC-12/24VDC</h3>
 <div class="images">
@@ -231,8 +228,12 @@ button.contact{
 <div class="price">Giá: 8.500.000</div>
 <div class="buy">Lượt mua: 8</div>
 <div class="views">Lượt xem: <span class="view-count">0</span></div>
+<a href="https://zalo.me/0936569586" target="_blank">
+<button class="contact">Liên hệ Zalo 0936.569.586</button>
+</a>
 </div>
 
+<!-- SẢN PHẨM 5 -->
 <div class="item" data-price="1850000">
 <div class="hot">🔥 HOT</div>
 <h3>SOCKET999-IGBT-12VDC</h3>
@@ -244,8 +245,12 @@ button.contact{
 <div class="price">Giá: 1.850.000</div>
 <div class="buy">Lượt mua: 89</div>
 <div class="views">Lượt xem: <span class="view-count">0</span></div>
+<a href="https://zalo.me/0936569586" target="_blank">
+<button class="contact">Liên hệ Zalo 0936.569.586</button>
+</a>
 </div>
 
+<!-- SẢN PHẨM 6 -->
 <div class="item" data-price="1750000">
 <div class="hot">🔥 HOT</div>
 <h3>SOCKET999M-LC-12VDC</h3>
@@ -257,8 +262,12 @@ button.contact{
 <div class="price">Giá: 1.750.000</div>
 <div class="buy">Lượt mua: 76</div>
 <div class="views">Lượt xem: <span class="view-count">0</span></div>
+<a href="https://zalo.me/0936569586" target="_blank">
+<button class="contact">Liên hệ Zalo 0936.569.586</button>
+</a>
 </div>
 
+<!-- SẢN PHẨM 7 -->
 <div class="item" data-price="7500000">
 <div class="hot">🔥 HOT</div>
 <h3>SOCKET4800G-LC-12VDC</h3>
@@ -270,6 +279,9 @@ button.contact{
 <div class="price">Giá: 7.500.000</div>
 <div class="buy">Lượt mua: 92</div>
 <div class="views">Lượt xem: <span class="view-count">0</span></div>
+<a href="https://zalo.me/0936569586" target="_blank">
+<button class="contact">Liên hệ Zalo 0936.569.586</button>
+</a>
 </div>
 
 </div>
