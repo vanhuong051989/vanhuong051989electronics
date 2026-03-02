@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,150 +9,87 @@
 body{
     font-family: Arial;
     margin:0;
-    background: linear-gradient(to right, #e3f2fd, #f1f8ff);
+    background:#f2f6ff;
 }
 
-/* HEADER */
-.header{
-    background:#0d47a1;
+/* Header */
+header{
+    background:linear-gradient(90deg,#0d47a1,#1976d2);
     color:white;
-    padding:20px;
-    text-align:center;
-    font-size:26px;
-    font-weight:bold;
-}
-
-/* SEARCH + FILTER */
-.top-bar{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    flex-wrap:wrap;
-    margin:20px;
-}
-
-input, select{
-    padding:8px;
-    border-radius:6px;
-    border:1px solid #ccc;
-}
-
-/* PRODUCT GRID */
-.products{
-    display:grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
-    gap:20px;
-    padding:20px;
-}
-
-.item{
-    position:relative;
-    background:white;
     padding:15px;
-    border-radius:12px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.1);
-    transition:0.3s;
-}
-
-.item:hover{
-    transform:translateY(-5px);
-}
-
-.hot-badge{
-    position:absolute;
-    top:10px;
-    right:10px;
-    background:linear-gradient(45deg,#ff0000,#ff9800);
-    color:white;
-    padding:5px 10px;
-    font-size:12px;
+    font-size:22px;
     font-weight:bold;
-    border-radius:20px;
-    animation:blink 1s infinite alternate;
 }
 
-@keyframes blink{
-    from{ transform:scale(1); }
-    to{ transform:scale(1.15); }
+/* Danh sách */
+.container{
+    padding:15px;
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:15px;
 }
 
-.images{
-    display:flex;
-    gap:6px;
+/* Sản phẩm */
+.product{
+    background:white;
+    border-radius:10px;
+    padding:10px;
+    box-shadow:0 3px 8px rgba(0,0,0,0.15);
+    text-align:center;
+    transition:0.2s;
+}
+.product:hover{
+    transform:scale(1.02);
 }
 
-.images img{
-    width:70px;
-    height:70px;
+/* Ảnh */
+.product img{
+    width:100%;
+    height:150px;
     object-fit:cover;
     border-radius:6px;
     cursor:pointer;
 }
 
+/* Tên */
+.product h3{
+    font-size:16px;
+    margin:8px 0 5px;
+}
+
+/* Giá */
 .price{
-    color:#d50000;
-    font-weight:bold;
-    margin-top:8px;
-}
-
-.views{
-    color:#1565c0;
+    color:red;
     font-weight:bold;
 }
 
-button{
-    margin-top:8px;
-    padding:8px;
-    width:100%;
-    background:#1976d2;
-    color:white;
-    border:none;
-    border-radius:6px;
-    cursor:pointer;
+/* Thông tin */
+.info{
+    font-size:13px;
+    margin-top:5px;
 }
 
-button:hover{
+/* Footer */
+footer{
     background:#0d47a1;
-}
-
-/* FOOTER */
-.footer{
-    background:#1565c0;
     color:white;
-    padding:25px 40px;
-    margin-top:40px;
-    font-size:14px;
-    line-height:1.8;
-    text-align:left;
-    border-left:6px solid #ffeb3b;
+    padding:20px;
+    margin-top:20px;
 }
 
-/* ZALO FLOAT */
-.zalo-float{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#0084ff;
-    color:white;
-    padding:12px 18px;
-    border-radius:50px;
-    font-weight:bold;
-    text-decoration:none;
-    box-shadow:0 4px 10px rgba(0,0,0,0.3);
-}
-
-/* POPUP */
-.popup{
+/* Modal xem ảnh */
+#modal{
     display:none;
     position:fixed;
-    top:0;left:0;
-    width:100%;height:100%;
-    background:rgba(0,0,0,0.85);
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.8);
     justify-content:center;
     align-items:center;
 }
-
-.popup img{
+#modal img{
     max-width:90%;
     max-height:90%;
 }
@@ -161,108 +98,76 @@ button:hover{
 
 <body>
 
-<div class="header">⚡ HUONG ELECTRONICS ⚡</div>
+<header>
+HUONG ELECTRONICS - DANH SÁCH SẢN PHẨM
+</header>
 
-<div class="top-bar">
-<input type="text" id="search" placeholder="Tìm sản phẩm...">
-<select id="priceFilter">
-<option value="all">Tất cả giá</option>
-<option value="low">Dưới 3 triệu</option>
-<option value="mid">3 - 6 triệu</option>
-<option value="high">Trên 6 triệu</option>
-</select>
+<div class="container">
+
+<!-- SẢN PHẨM 1 -->
+<div class="product">
+    <img src="link-anh-1.jpg" onclick="openImage(this,1)">
+    <h3>Máy Kích Cá 1</h3>
+    <div class="price">3.500.000đ</div>
+    <div class="info">
+        Lượt xem: <span id="view1">0</span><br>
+        Lượt mua: <span>25</span>
+    </div>
 </div>
 
-<div class="products" id="productList">
+<!-- SẢN PHẨM 2 -->
+<div class="product">
+    <img src="link-anh-2.jpg" onclick="openImage(this,2)">
+    <h3>Máy Kích Cá 2</h3>
+    <div class="price">4.200.000đ</div>
+    <div class="info">
+        Lượt xem: <span id="view2">0</span><br>
+        Lượt mua: <span>18</span>
+    </div>
+</div>
 
-<!-- ===== 7 SẢN PHẨM ===== -->
+<!-- SẢN PHẨM 3 -->
+<div class="product">
+    <img src="link-anh-3.jpg" onclick="openImage(this,3)">
+    <h3>Bo Mạch Công Suất</h3>
+    <div class="price">1.200.000đ</div>
+    <div class="info">
+        Lượt xem: <span id="view3">0</span><br>
+        Lượt mua: <span>40</span>
+    </div>
+</div>
+
+<!-- THÊM SẢN PHẨM BÊN DƯỚI CỨ COPY KHỐI NÀY -->
+
+</div>
+
+<!-- Modal xem ảnh -->
+<div id="modal" onclick="closeImage()">
+    <img id="modalImg">
+</div>
+
+<footer>
+<h3>LIÊN HỆ</h3>
+Địa chỉ: Hải Phòng<br>
+Zalo: 09xxxxxxxx<br>
+Facebook: HUONG ELECTRONICS<br>
+© 2026 HUONG ELECTRONICS
+</footer>
 
 <script>
-const products = [
-{name:"SOCKET6800G-LC-24VDC",price:7500000,views:58,imgs:["SOCKET6800G.jpg","SOCKET6800G02.jpg","SOCKET6800G03.jpg"]},
-{name:"SOCKET1700M-LC-12VDC",price:3500000,views:32,imgs:["SOCKET1700M.jpg","SOCKET1700M02.jpg","SOCKET1700M03.jpg"]},
-{name:"SOCKET1700H-CH-12VDC",price:3750000,views:72,imgs:["SOCKET1700H.jpg","SOCKET1700H02.jpg","SOCKET1700H03.jpg"]},
-{name:"SOCKET9800G-LC-12/24VDC",price:8500000,views:8,imgs:["SOCKET6800G.jpg","SOCKET6800G02.jpg","SOCKET6800G03.jpg"]},
-{name:"SOCKET999-IGBT-12VDC",price:1850000,views:89,imgs:["SOCKET1700M.jpg","SOCKET1700M02.jpg","SOCKET1700M03.jpg"]},
-{name:"SOCKET999M-LC-12VDC",price:1750000,views:76,imgs:["SOCKET1700H.jpg","SOCKET1700H02.jpg","SOCKET1700H03.jpg"]},
-{name:"SOCKET4800G-LC-12VDC",price:7500000,views:92,imgs:["SOCKET6800G.jpg","SOCKET6800G02.jpg","SOCKET6800G03.jpg"]}
-];
+function openImage(img,id){
+    document.getElementById("modal").style.display="flex";
+    document.getElementById("modalImg").src = img.src;
 
-const container = document.getElementById("productList");
-
-products.forEach(p=>{
-let div=document.createElement("div");
-div.className="item";
-div.dataset.price=p.price;
-
-let hot = p.views>50 ? '<div class="hot-badge">🔥 HOT ⭐</div>' : '';
-
-div.innerHTML=`
-${hot}
-<h3>${p.name}</h3>
-<div class="images">
-${p.imgs.map(i=>`<img src="${i}" onclick="showImage('${i}')">`).join("")}
-</div>
-<div class="price">${p.price.toLocaleString()}</div>
-<div class="views">Lượt mua: <span class="view-count">${p.views}</span></div>
-<button onclick="increaseView(this)">Xem sản phẩm</button>
-`;
-
-container.appendChild(div);
-});
-
-function increaseView(btn){
-let view=btn.parentElement.querySelector(".view-count");
-let n=parseInt(view.innerText);
-n++;
-view.innerText=n;
-if(n>50 && !btn.parentElement.querySelector(".hot-badge")){
-let badge=document.createElement("div");
-badge.className="hot-badge";
-badge.innerHTML="🔥 HOT ⭐";
-btn.parentElement.appendChild(badge);
-}
+    // Tăng lượt xem
+    let view = document.getElementById("view"+id);
+    view.innerText = parseInt(view.innerText) + 1;
 }
 
-function showImage(src){
-document.getElementById("popup").style.display="flex";
-document.getElementById("popupImg").src=src;
+function closeImage(){
+    document.getElementById("modal").style.display="none";
 }
-
-document.getElementById("search").addEventListener("keyup",function(){
-let key=this.value.toLowerCase();
-document.querySelectorAll(".item").forEach(item=>{
-item.style.display=item.querySelector("h3").innerText.toLowerCase().includes(key)?"block":"none";
-});
-});
-
-document.getElementById("priceFilter").addEventListener("change",function(){
-let value=this.value;
-document.querySelectorAll(".item").forEach(item=>{
-let price=parseInt(item.dataset.price);
-if(value=="low" && price>=3000000) item.style.display="none";
-else if(value=="mid" && (price<3000000||price>6000000)) item.style.display="none";
-else if(value=="high" && price<=6000000) item.style.display="none";
-else item.style.display="block";
-});
-});
 </script>
-
-</div>
-
-<div class="footer">
-<b>HƯỞNG ELECTRONICS</b><br>
-SDT: 0936.569.586<br>
-Zalo: 0936.569.586<br>
-FB: VŨ VĂN HƯỞNG<br>
-YOUTUBE: VĂN HƯỞNG HP
-</div>
-
-<a class="zalo-float" href="https://zalo.me/0936569586" target="_blank">Chat Zalo</a>
-
-<div class="popup" id="popup" onclick="this.style.display='none'">
-<img id="popupImg">
-</div>
 
 </body>
 </html>
