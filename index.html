@@ -2,8 +2,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>HUONG ELECTRONICS</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HUONG ELECTRONICS</title>
 
 <style>
 body{
@@ -37,7 +37,7 @@ input, select{
     border:1px solid #ccc;
 }
 
-/* GRID */
+/* PRODUCT GRID */
 .products{
     display:grid;
     grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
@@ -100,11 +100,6 @@ input, select{
     font-weight:bold;
 }
 
-.stock{
-    color:green;
-    font-size:14px;
-}
-
 button{
     margin-top:8px;
     padding:8px;
@@ -118,6 +113,18 @@ button{
 
 button:hover{
     background:#0d47a1;
+}
+
+/* FOOTER */
+.footer{
+    background:#1565c0;
+    color:white;
+    padding:25px 40px;
+    margin-top:40px;
+    font-size:14px;
+    line-height:1.8;
+    text-align:left;
+    border-left:6px solid #ffeb3b;
 }
 
 /* ZALO FLOAT */
@@ -168,80 +175,94 @@ button:hover{
 
 <div class="products" id="productList">
 
-<div class="item" data-price="7500000">
-<h3>SOCKET6800G-LC-24VDC</h3>
+<!-- ===== 7 SẢN PHẨM ===== -->
+
+<script>
+const products = [
+{name:"SOCKET6800G-LC-24VDC",price:7500000,views:58,imgs:["SOCKET6800G.jpg","SOCKET6800G02.jpg","SOCKET6800G03.jpg"]},
+{name:"SOCKET1700M-LC-12VDC",price:3500000,views:32,imgs:["SOCKET1700M.jpg","SOCKET1700M02.jpg","SOCKET1700M03.jpg"]},
+{name:"SOCKET1700H-CH-12VDC",price:3750000,views:72,imgs:["SOCKET1700H.jpg","SOCKET1700H02.jpg","SOCKET1700H03.jpg"]},
+{name:"SOCKET9800G-LC-12/24VDC",price:8500000,views:8,imgs:["SOCKET6800G.jpg","SOCKET6800G02.jpg","SOCKET6800G03.jpg"]},
+{name:"SOCKET999-IGBT-12VDC",price:1850000,views:89,imgs:["SOCKET1700M.jpg","SOCKET1700M02.jpg","SOCKET1700M03.jpg"]},
+{name:"SOCKET999M-LC-12VDC",price:1750000,views:76,imgs:["SOCKET1700H.jpg","SOCKET1700H02.jpg","SOCKET1700H03.jpg"]},
+{name:"SOCKET4800G-LC-12VDC",price:7500000,views:92,imgs:["SOCKET6800G.jpg","SOCKET6800G02.jpg","SOCKET6800G03.jpg"]}
+];
+
+const container = document.getElementById("productList");
+
+products.forEach(p=>{
+let div=document.createElement("div");
+div.className="item";
+div.dataset.price=p.price;
+
+let hot = p.views>50 ? '<div class="hot-badge">🔥 HOT ⭐</div>' : '';
+
+div.innerHTML=`
+${hot}
+<h3>${p.name}</h3>
 <div class="images">
-<img src="SOCKET6800G.jpg" onclick="showImage(this.src)">
+${p.imgs.map(i=>`<img src="${i}" onclick="showImage('${i}')">`).join("")}
 </div>
-<div class="price">7.500.000</div>
-<div class="views">Lượt xem: <span class="view-count">58</span></div>
-<div class="stock">Còn: 12 sản phẩm</div>
+<div class="price">${p.price.toLocaleString()}</div>
+<div class="views">Lượt mua: <span class="view-count">${p.views}</span></div>
 <button onclick="increaseView(this)">Xem sản phẩm</button>
+`;
+
+container.appendChild(div);
+});
+
+function increaseView(btn){
+let view=btn.parentElement.querySelector(".view-count");
+let n=parseInt(view.innerText);
+n++;
+view.innerText=n;
+if(n>50 && !btn.parentElement.querySelector(".hot-badge")){
+let badge=document.createElement("div");
+badge.className="hot-badge";
+badge.innerHTML="🔥 HOT ⭐";
+btn.parentElement.appendChild(badge);
+}
+}
+
+function showImage(src){
+document.getElementById("popup").style.display="flex";
+document.getElementById("popupImg").src=src;
+}
+
+document.getElementById("search").addEventListener("keyup",function(){
+let key=this.value.toLowerCase();
+document.querySelectorAll(".item").forEach(item=>{
+item.style.display=item.querySelector("h3").innerText.toLowerCase().includes(key)?"block":"none";
+});
+});
+
+document.getElementById("priceFilter").addEventListener("change",function(){
+let value=this.value;
+document.querySelectorAll(".item").forEach(item=>{
+let price=parseInt(item.dataset.price);
+if(value=="low" && price>=3000000) item.style.display="none";
+else if(value=="mid" && (price<3000000||price>6000000)) item.style.display="none";
+else if(value=="high" && price<=6000000) item.style.display="none";
+else item.style.display="block";
+});
+});
+</script>
+
 </div>
 
-<div class="item" data-price="3500000">
-<h3>SOCKET1700M-LC-12VDC</h3>
-<div class="images">
-<img src="SOCKET1700M.jpg" onclick="showImage(this.src)">
-</div>
-<div class="price">3.500.000</div>
-<div class="views">Lượt xem: <span class="view-count">32</span></div>
-<div class="stock">Còn: 8 sản phẩm</div>
-<button onclick="increaseView(this)">Xem sản phẩm</button>
+<div class="footer">
+<b>HƯỞNG ELECTRONICS</b><br>
+SDT: 0936.569.586<br>
+Zalo: 0936.569.586<br>
+FB: VŨ VĂN HƯỞNG<br>
+YOUTUBE: VĂN HƯỞNG HP
 </div>
 
-</div>
-
-<a class="zalo-float" href="https://zalo.me/0936569586" target="_blank">
-Chat Zalo
-</a>
+<a class="zalo-float" href="https://zalo.me/0936569586" target="_blank">Chat Zalo</a>
 
 <div class="popup" id="popup" onclick="this.style.display='none'">
 <img id="popupImg">
 </div>
-
-<script>
-function showImage(src){
-    document.getElementById("popup").style.display="flex";
-    document.getElementById("popupImg").src=src;
-}
-
-function increaseView(btn){
-    let item = btn.closest(".item");
-    let view = item.querySelector(".view-count");
-    let number = parseInt(view.innerText);
-    number++;
-    view.innerText = number;
-
-    if(number > 50 && !item.querySelector(".hot-badge")){
-        let badge = document.createElement("div");
-        badge.className = "hot-badge";
-        badge.innerHTML = "🔥 HOT ⭐";
-        item.appendChild(badge);
-    }
-}
-
-/* SEARCH */
-document.getElementById("search").addEventListener("keyup", function(){
-    let keyword = this.value.toLowerCase();
-    document.querySelectorAll(".item").forEach(function(item){
-        let name = item.querySelector("h3").innerText.toLowerCase();
-        item.style.display = name.includes(keyword) ? "block" : "none";
-    });
-});
-
-/* FILTER */
-document.getElementById("priceFilter").addEventListener("change", function(){
-    let value = this.value;
-    document.querySelectorAll(".item").forEach(function(item){
-        let price = parseInt(item.dataset.price);
-        if(value=="low" && price>=3000000) item.style.display="none";
-        else if(value=="mid" && (price<3000000 || price>6000000)) item.style.display="none";
-        else if(value=="high" && price<=6000000) item.style.display="none";
-        else item.style.display="block";
-    });
-});
-</script>
 
 </body>
 </html>
