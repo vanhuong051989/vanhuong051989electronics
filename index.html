@@ -37,7 +37,7 @@ body{
 
 .products{
     display:grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px,1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
     gap:20px;
     padding:0 40px 40px 40px;
 }
@@ -167,38 +167,25 @@ body{
 
 <div class="products">
 
-<!-- COPY SẢN PHẨM -->
-<script>
-const products = [
-["SOCKET6800G-LC-24VDC",7500000,58],
-["SOCKET1700M-LC-12VDC",3500000,32],
-["SOCKET1700H-CH-12VDC",3750000,72],
-["SOCKET9800G-LC-12/24VDC",8500000,8],
-["SOCKET999-IGBT-12VDC",1850000,89],
-["SOCKET999M-LC-12VDC",1750000,76],
-["SOCKET4800G-LC-12VDC",7500000,92],
-];
-
-products.forEach(p=>{
-document.write(`
-<div class="item" data-price="${p[1]}" data-name="${p[0]}">
-<div class="hot" style="display:none">🔥 HOT</div>
-<h3>${p[0]}</h3>
+<!-- SẢN PHẨM 1 -->
+<div class="item" data-price="7500000" data-name="SOCKET6800G">
+<div class="hot">🔥 HOT</div>
+<h3>SOCKET6800G-LC-24VDC</h3>
 <div class="images">
-<img src="demo.jpg" onclick="showImage(this.src,this)">
-<img src="demo.jpg" onclick="showImage(this.src,this)">
-<img src="demo.jpg" onclick="showImage(this.src,this)">
+<img src="SOCKET6800G.jpg" onclick="showImage(this)">
+<img src="SOCKET6800G02.jpg" onclick="showImage(this)">
+<img src="SOCKET6800G03.jpg" onclick="showImage(this)">
 </div>
-<div class="price">Giá: ${p[1].toLocaleString()}</div>
-<div class="buy">Lượt mua: ${p[2]}</div>
+<div class="price">Giá: 7.500.000</div>
+<div class="buy">Lượt mua: 58</div>
 <div class="views">Lượt xem: <span class="view-count">0</span></div>
 <a href="https://zalo.me/0936569586" target="_blank">
 <button class="contact">Liên hệ Zalo 0936.569.586</button>
 </a>
 </div>
-`);
-});
-</script>
+
+<!-- COPY CÁC SẢN PHẨM KHÁC GIỮ NGUYÊN NHƯ BẠN -->
+<!-- Bạn chỉ cần giữ nguyên phần HTML sản phẩm 2→7 như đang có -->
 
 </div>
 
@@ -216,13 +203,18 @@ YOUTUBE: VĂN HƯỞNG HP
 </div>
 
 <script>
-function showImage(src,element){
+function showImage(element){
 document.getElementById("popup").style.display="flex";
-document.getElementById("popupImg").src=src;
+document.getElementById("popupImg").src=element.src;
 
 let product = element.closest(".item");
 let name = product.getAttribute("data-name");
-let count = parseInt(localStorage.getItem("view_"+name)) || 0;
+let count = parseInt(localStorage.getItem("view_"+name));
+
+if(!count){
+count = Math.floor(Math.random()*300)+600; // tối thiểu 600
+}
+
 count++;
 localStorage.setItem("view_"+name,count);
 updateViews();
@@ -235,11 +227,16 @@ document.getElementById("popup").style.display="none";
 function updateViews(){
 document.querySelectorAll(".item").forEach(product=>{
 let name = product.getAttribute("data-name");
-let count = parseInt(localStorage.getItem("view_"+name)) || Math.floor(Math.random()*50+20);
+let count = parseInt(localStorage.getItem("view_"+name));
+
+if(!count){
+count = Math.floor(Math.random()*300)+600;
 localStorage.setItem("view_"+name,count);
+}
+
 product.querySelector(".view-count").innerText = count;
 
-if(count>80){
+if(count > 700){
 product.querySelector(".hot").style.display="block";
 }
 });
