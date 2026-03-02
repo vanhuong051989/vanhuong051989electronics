@@ -39,12 +39,12 @@ body{
 }
 
 .item{
+    position:relative;
     background:white;
     padding:15px;
     border-radius:12px;
     box-shadow:0 4px 12px rgba(0,0,0,0.1);
     transition:0.3s;
-    position:relative;
 }
 
 .item:hover{
@@ -67,7 +67,7 @@ body{
 
 @keyframes blink{
     from{ transform:scale(1); }
-    to{ transform:scale(1.1); }
+    to{ transform:scale(1.15); }
 }
 
 .images{
@@ -167,26 +167,110 @@ Danh sách sản phẩm
 
 <div class="products">
 
-<!-- Ví dụ sản phẩm -->
+<!-- SP1 -->
 <div class="item">
 <h3>SOCKET6800G-LC-24VDC</h3>
-
 <div class="images">
 <img src="SOCKET6800G.jpg" onclick="showImage(this.src)">
 <img src="SOCKET6800G02.jpg" onclick="showImage(this.src)">
 <img src="SOCKET6800G03.jpg" onclick="showImage(this.src)">
 </div>
-
 <div class="price">Giá: 7.500.000</div>
 <div class="views">Lượt mua: <span class="view-count">58</span></div>
-
 <a href="https://zalo.me/0936569586" target="_blank">
-<button>Liên hệ Zalo 0936.569.586</button>
+<button>Liên hệ Zalo</button>
 </a>
 </div>
 
-<!-- Bạn giữ nguyên các sản phẩm khác giống cấu trúc trên -->
-<!-- CHỈ cần đảm bảo số lượt mua nằm trong <span class="view-count">SỐ</span> -->
+<!-- SP2 -->
+<div class="item">
+<h3>SOCKET1700M-LC-12VDC</h3>
+<div class="images">
+<img src="SOCKET1700M.jpg" onclick="showImage(this.src)">
+<img src="SOCKET1700M02.jpg" onclick="showImage(this.src)">
+<img src="SOCKET1700M03.jpg" onclick="showImage(this.src)">
+</div>
+<div class="price">Giá: 3.500.000</div>
+<div class="views">Lượt mua: <span class="view-count">32</span></div>
+<a href="https://zalo.me/0936569586" target="_blank">
+<button>Liên hệ Zalo</button>
+</a>
+</div>
+
+<!-- SP3 -->
+<div class="item">
+<h3>SOCKET1700H-CH-12VDC</h3>
+<div class="images">
+<img src="SOCKET1700H.jpg" onclick="showImage(this.src)">
+<img src="SOCKET1700H02.jpg" onclick="showImage(this.src)">
+<img src="SOCKET1700H03.jpg" onclick="showImage(this.src)">
+</div>
+<div class="price">Giá: 3.750.000</div>
+<div class="views">Lượt mua: <span class="view-count">72</span></div>
+<a href="https://zalo.me/0936569586" target="_blank">
+<button>Liên hệ Zalo</button>
+</a>
+</div>
+
+<!-- SP4 -->
+<div class="item">
+<h3>SOCKET9800G-LC-12/24VDC</h3>
+<div class="images">
+<img src="SOCKET6800G.jpg" onclick="showImage(this.src)">
+<img src="SOCKET6800G02.jpg" onclick="showImage(this.src)">
+<img src="SOCKET6800G03.jpg" onclick="showImage(this.src)">
+</div>
+<div class="price">Giá: 8.500.000</div>
+<div class="views">Lượt mua: <span class="view-count">8</span></div>
+<a href="https://zalo.me/0936569586" target="_blank">
+<button>Liên hệ Zalo</button>
+</a>
+</div>
+
+<!-- SP5 -->
+<div class="item">
+<h3>SOCKET999-IGBT-12VDC</h3>
+<div class="images">
+<img src="SOCKET1700M.jpg" onclick="showImage(this.src)">
+<img src="SOCKET1700M02.jpg" onclick="showImage(this.src)">
+<img src="SOCKET1700M03.jpg" onclick="showImage(this.src)">
+</div>
+<div class="price">Giá: 1.850.000</div>
+<div class="views">Lượt mua: <span class="view-count">89</span></div>
+<a href="https://zalo.me/0936569586" target="_blank">
+<button>Liên hệ Zalo</button>
+</a>
+</div>
+
+<!-- SP6 -->
+<div class="item">
+<h3>SOCKET999M-LC-12VDC</h3>
+<div class="images">
+<img src="SOCKET1700H.jpg" onclick="showImage(this.src)">
+<img src="SOCKET1700H02.jpg" onclick="showImage(this.src)">
+<img src="SOCKET1700H03.jpg" onclick="showImage(this.src)">
+</div>
+<div class="price">Giá: 1.750.000</div>
+<div class="views">Lượt mua: <span class="view-count">76</span></div>
+<a href="https://zalo.me/0936569586" target="_blank">
+<button>Liên hệ Zalo</button>
+</a>
+</div>
+
+<!-- SP7 -->
+<div class="item">
+<h3>SOCKET4800G-LC-12VDC</h3>
+<div class="images">
+<img src="SOCKET6800G.jpg" onclick="showImage(this.src)">
+<img src="SOCKET6800G02.jpg" onclick="showImage(this.src)">
+<img src="SOCKET6800G03.jpg" onclick="showImage(this.src)">
+</div>
+<div class="price">Giá: 7.500.000</div>
+<div class="views">Lượt mua: <span class="view-count">92</span></div>
+<a href="https://zalo.me/0936569586" target="_blank">
+<button>Liên hệ Zalo</button>
+</a>
+</div>
 
 </div>
 
@@ -213,7 +297,7 @@ function closePopup(){
     document.getElementById("popup").style.display="none";
 }
 
-/* TỰ ĐỘNG THÊM HOT */
+/* TỰ ĐỘNG GẮN HOT */
 document.querySelectorAll(".item").forEach(function(item){
     let views = item.querySelector(".view-count");
     if(views){
