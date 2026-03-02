@@ -44,10 +44,30 @@ body{
     border-radius:12px;
     box-shadow:0 4px 12px rgba(0,0,0,0.1);
     transition:0.3s;
+    position:relative;
 }
 
 .item:hover{
     transform:translateY(-5px);
+}
+
+/* HOT BADGE */
+.hot-badge{
+    position:absolute;
+    top:10px;
+    right:10px;
+    background:linear-gradient(45deg,#ff0000,#ff9800);
+    color:white;
+    padding:5px 10px;
+    font-size:12px;
+    font-weight:bold;
+    border-radius:20px;
+    animation:blink 1s infinite alternate;
+}
+
+@keyframes blink{
+    from{ transform:scale(1); }
+    to{ transform:scale(1.1); }
 }
 
 .images{
@@ -94,7 +114,7 @@ button:hover{
     background:#0d47a1;
 }
 
-/* FOOTER LEFT STYLE */
+/* FOOTER */
 .footer{
     background:#1565c0;
     color:white;
@@ -147,113 +167,29 @@ Danh sách sản phẩm
 
 <div class="products">
 
-<!-- SẢN PHẨM 1 -->
+<!-- Ví dụ sản phẩm -->
 <div class="item">
 <h3>SOCKET6800G-LC-24VDC</h3>
+
 <div class="images">
 <img src="SOCKET6800G.jpg" onclick="showImage(this.src)">
 <img src="SOCKET6800G02.jpg" onclick="showImage(this.src)">
 <img src="SOCKET6800G03.jpg" onclick="showImage(this.src)">
 </div>
+
 <div class="price">Giá: 7.500.000</div>
-<div class="views">Lượt mua: 58</div>
+<div class="views">Lượt mua: <span class="view-count">58</span></div>
+
 <a href="https://zalo.me/0936569586" target="_blank">
 <button>Liên hệ Zalo 0936.569.586</button>
 </a>
 </div>
 
-<!-- SẢN PHẨM 2 -->
-<div class="item">
-<h3>SOCKET1700M-LC-12VDC</h3>
-<div class="images">
-<img src="SOCKET1700M.jpg" onclick="showImage(this.src)">
-<img src="SOCKET1700M02.jpg" onclick="showImage(this.src)">
-<img src="SOCKET1700M03.jpg" onclick="showImage(this.src)">
-</div>
-<div class="price">Giá: 3.500.000</div>
-<div class="views">Lượt mua: 32</div>
-<a href="https://zalo.me/0936569586" target="_blank">
-<button>Liên hệ Zalo 0936.569.586</button>
-</a>
-</div>
-
-<!-- SẢN PHẨM 3 -->
-<div class="item">
-<h3>SOCKET1700H-CH-12VDC</h3>
-<div class="images">
-<img src="SOCKET1700H.jpg" onclick="showImage(this.src)">
-<img src="SOCKET1700H02.jpg" onclick="showImage(this.src)">
-<img src="SOCKET1700H03.jpg" onclick="showImage(this.src)">
-</div>
-<div class="price">Giá: 3.750.000</div>
-<div class="views">Lượt mua: 72</div>
-<a href="https://zalo.me/0936569586" target="_blank">
-<button>Liên hệ Zalo 0936.569.586</button>
-</a>
-</div>
-
-    <!-- SẢN PHẨM 4 -->
-<div class="item">
-<h3>SOCKET9800G-LC-12/24VDC</h3>
-<div class="images">
-<img src="SOCKET6800G.jpg" onclick="showImage(this.src)">
-<img src="SOCKET6800G02.jpg" onclick="showImage(this.src)">
-<img src="SOCKET6800G03.jpg" onclick="showImage(this.src)">
-</div>
-<div class="price">Giá: 8.500.000</div>
-<div class="views">Lượt mua: 8</div>
-<a href="https://zalo.me/0936569586" target="_blank">
-<button>Liên hệ Zalo 0936.569.586</button>
-</a>
-</div>
-
-<!-- SẢN PHẨM 5 -->
-<div class="item">
-<h3>SOCKET999-IGBT-12VDC</h3>
-<div class="images">
-<img src="SOCKET1700M.jpg" onclick="showImage(this.src)">
-<img src="SOCKET1700M02.jpg" onclick="showImage(this.src)">
-<img src="SOCKET1700M03.jpg" onclick="showImage(this.src)">
-</div>
-<div class="price">Giá: 1.850.000</div>
-<div class="views">Lượt mua: 89</div>
-<a href="https://zalo.me/0936569586" target="_blank">
-<button>Liên hệ Zalo 0936.569.586</button>
-</a>
-</div>
-
-<!-- SẢN PHẨM 6 -->
-<div class="item">
-<h3>SOCKET999M-LC-12VDC</h3>
-<div class="images">
-<img src="SOCKET1700H.jpg" onclick="showImage(this.src)">
-<img src="SOCKET1700H02.jpg" onclick="showImage(this.src)">
-<img src="SOCKET1700H03.jpg" onclick="showImage(this.src)">
-</div>
-<div class="price">Giá: 1.750.000</div>
-<div class="views">Lượt mua: 76</div>
-<a href="https://zalo.me/0936569586" target="_blank">
-<button>Liên hệ Zalo 0936.569.586</button>
-</a>
-</div>
-    <!-- SẢN PHẨM 7 -->
-<div class="item">
-<h3>SOCKET4800G-LC-12VDC</h3>
-<div class="images">
-<img src="SOCKET6800G.jpg" onclick="showImage(this.src)">
-<img src="SOCKET6800G02.jpg" onclick="showImage(this.src)">
-<img src="SOCKET6800G03.jpg" onclick="showImage(this.src)">
-</div>
-<div class="price">Giá: 7.500.000</div>
-<div class="views">Lượt mua: 92</div>
-<a href="https://zalo.me/0936569586" target="_blank">
-<button>Liên hệ Zalo 0936.569.586</button>
-</a>
-</div>
+<!-- Bạn giữ nguyên các sản phẩm khác giống cấu trúc trên -->
+<!-- CHỈ cần đảm bảo số lượt mua nằm trong <span class="view-count">SỐ</span> -->
 
 </div>
 
-<!-- FOOTER -->
 <div class="footer">
 <b>HƯỞNG ELECTRONICS</b><br>
 SDT: 0936.569.586<br>
@@ -262,7 +198,6 @@ FB: VŨ VĂN HƯỞNG<br>
 YOUTUBE: VĂN HƯỞNG HP
 </div>
 
-<!-- POPUP -->
 <div class="popup" id="popup">
 <span onclick="closePopup()">×</span>
 <img id="popupImg">
@@ -277,11 +212,21 @@ function showImage(src){
 function closePopup(){
     document.getElementById("popup").style.display="none";
 }
+
+/* TỰ ĐỘNG THÊM HOT */
+document.querySelectorAll(".item").forEach(function(item){
+    let views = item.querySelector(".view-count");
+    if(views){
+        let number = parseInt(views.innerText);
+        if(number > 50){
+            let badge = document.createElement("div");
+            badge.className = "hot-badge";
+            badge.innerHTML = "🔥 HOT ⭐";
+            item.appendChild(badge);
+        }
+    }
+});
 </script>
 
 </body>
 </html>
-
-
-
-
