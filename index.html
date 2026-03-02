@@ -6,102 +6,108 @@
 
 <style>
 body{
-    font-family: Arial;
+    font-family: Arial, sans-serif;
     margin:0;
-    background: linear-gradient(to right, #e3f2fd, #f1f8ff);
-}
-
-/* BOX LIÊN HỆ GÓC TRÁI */
-.contact-box{
-    position:fixed;
-    top:15px;
-    left:15px;
-    background:#0d47a1;
-    color:white;
-    padding:14px 16px;
-    border-radius:12px;
-    box-shadow:0 6px 15px rgba(0,0,0,0.3);
-    font-size:14px;
-    line-height:1.7;
-    z-index:999;
-    border:2px solid #42a5f5;
-}
-
-.contact-box b{
-    color:#ffd600;
-    font-size:15px;
+    background:#f4f6f9;
 }
 
 /* HEADER */
 .header{
-    background:#0d47a1;
+    background:#1565c0;
     color:white;
-    padding:20px;
+    padding:18px;
     text-align:center;
-    font-size:28px;
+    font-size:26px;
     font-weight:bold;
 }
 
+/* BOX LIÊN HỆ */
+.contact-box{
+    position:fixed;
+    top:20px;
+    left:20px;
+    background:white;
+    color:#333;
+    padding:15px 18px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+    font-size:14px;
+    line-height:1.6;
+    z-index:999;
+}
+
+.contact-box b{
+    color:#1565c0;
+    font-size:15px;
+}
+
+/* TIÊU ĐỀ */
 .section-title{
     text-align:center;
-    margin:30px 0 20px 0;
+    margin:30px 0 25px 0;
     font-size:22px;
     font-weight:bold;
-    color:#0d47a1;
+    color:#1565c0;
 }
 
+/* GRID */
 .products{
     display:grid;
     grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
-    gap:20px;
-    padding:0 30px 40px 30px;
+    gap:25px;
+    padding:0 40px 60px 40px;
 }
 
+/* CARD */
 .item{
     background:white;
-    padding:15px;
-    border-radius:10px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
-}
-
-.images{
-    display:flex;
-    gap:6px;
-}
-
-.images img{
-    width:80px;
-    height:80px;
-    object-fit:cover;
-    border-radius:6px;
-    cursor:pointer;
+    padding:18px;
+    border-radius:14px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
     transition:0.3s;
 }
 
-.images img:hover{
-    transform:scale(1.1);
+.item:hover{
+    transform:translateY(-5px);
+}
+
+/* ẢNH */
+.images{
+    display:flex;
+    gap:8px;
+}
+
+.images img{
+    width:90px;
+    height:90px;
+    object-fit:cover;
+    border-radius:8px;
+    cursor:pointer;
 }
 
 .price{
-    color:#d50000;
+    color:#e53935;
     font-weight:bold;
-    margin-top:10px;
+    margin-top:12px;
+    font-size:16px;
 }
 
 .views{
-    color:#1565c0;
+    color:#1976d2;
     font-weight:bold;
-    margin-top:5px;
+    margin-top:6px;
 }
 
+/* BUTTON */
 button{
-    margin-top:10px;
-    padding:7px 15px;
-    background:#1976d2;
+    margin-top:12px;
+    padding:8px 18px;
+    background:#1565c0;
     color:white;
     border:none;
-    border-radius:5px;
+    border-radius:6px;
     cursor:pointer;
+    font-weight:bold;
 }
 
 button:hover{
@@ -128,7 +134,7 @@ button:hover{
 
 .popup span{
     position:absolute;
-    top:20px;
+    top:25px;
     right:40px;
     font-size:30px;
     color:white;
@@ -139,17 +145,16 @@ button:hover{
 
 <body>
 
-<!-- THÔNG TIN GÓC TRÁI -->
+<div class="header">
+⚡ HUONG ELECTRONICS ⚡
+</div>
+
 <div class="contact-box">
 <b>HƯỞNG ELECTRONICS</b><br>
 SDT: 0936.569.586<br>
 Zalo: 0936.569.586<br>
 FB: VŨ VĂN HƯỞNG<br>
-YOUTUBE: VĂN HƯỞNG HP
-</div>
-
-<div class="header">
-⚡ HUONG ELECTRONICS ⚡
+YouTube: VĂN HƯỞNG HP
 </div>
 
 <div class="section-title">
@@ -158,7 +163,6 @@ Danh sách sản phẩm
 
 <div class="products">
 
-<!-- SẢN PHẨM 1 -->
 <div class="item">
 <h3>SOCKET6800G-24VDC</h3>
 <div class="images">
@@ -169,11 +173,10 @@ Danh sách sản phẩm
 <div class="price">Giá: 7.500.000</div>
 <div class="views">Lượt mua: 125</div>
 <a href="https://zalo.me/0936569586" target="_blank">
-<button>Liên hệ Zalo 0936569586</button>
+<button>Liên hệ Zalo</button>
 </a>
 </div>
 
-<!-- SẢN PHẨM 2 -->
 <div class="item">
 <h3>SOCKET1700M-12VDC</h3>
 <div class="images">
@@ -184,11 +187,10 @@ Danh sách sản phẩm
 <div class="price">Giá: 3.500.000</div>
 <div class="views">Lượt mua: 98</div>
 <a href="https://zalo.me/0936569586" target="_blank">
-<button>Liên hệ Zalo 0936569586</button>
+<button>Liên hệ Zalo</button>
 </a>
 </div>
 
-<!-- SẢN PHẨM 3 -->
 <div class="item">
 <h3>SOCKET1700H-12VDC</h3>
 <div class="images">
@@ -199,13 +201,12 @@ Danh sách sản phẩm
 <div class="price">Giá: 3.750.000</div>
 <div class="views">Lượt mua: 76</div>
 <a href="https://zalo.me/0936569586" target="_blank">
-<button>Liên hệ Zalo 0936569586</button>
+<button>Liên hệ Zalo</button>
 </a>
 </div>
 
 </div>
 
-<!-- Popup -->
 <div class="popup" id="popup">
 <span onclick="closePopup()">×</span>
 <img id="popupImg">
