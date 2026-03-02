@@ -37,7 +37,7 @@ body{
 
 .products{
     display:grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+    grid-template-columns: repeat(auto-fill, minmax(260px,1fr));
     gap:20px;
     padding:0 40px 40px 40px;
 }
@@ -167,122 +167,38 @@ body{
 
 <div class="products">
 
-<!-- SẢN PHẨM 1 -->
-<div class="item" data-price="7500000">
-<div class="hot">🔥 HOT</div>
-<h3>SOCKET6800G-LC-24VDC</h3>
-<div class="images">
-<img src="SOCKET6800G.jpg" onclick="showImage(this.src,this)">
-<img src="SOCKET6800G02.jpg" onclick="showImage(this.src,this)">
-<img src="SOCKET6800G03.jpg" onclick="showImage(this.src,this)">
-</div>
-<div class="price">Giá: 7.500.000</div>
-<div class="buy">Lượt mua: 58</div>
-<div class="views">Lượt xem: <span class="view-count">0</span></div>
-<a href="https://zalo.me/0936569586" target="_blank">
-<button class="contact">Liên hệ Zalo 0936.569.586</button>
-</a>
-</div>
+<!-- COPY SẢN PHẨM -->
+<script>
+const products = [
+["SOCKET6800G-LC-24VDC",7500000,58],
+["SOCKET1700M-LC-12VDC",3500000,32],
+["SOCKET1700H-CH-12VDC",3750000,72],
+["SOCKET9800G-LC-12/24VDC",8500000,8],
+["SOCKET999-IGBT-12VDC",1850000,89],
+["SOCKET999M-LC-12VDC",1750000,76],
+["SOCKET4800G-LC-12VDC",7500000,92],
+];
 
-<!-- SẢN PHẨM 2 -->
-<div class="item" data-price="3500000">
-<h3>SOCKET1700M-LC-12VDC</h3>
+products.forEach(p=>{
+document.write(`
+<div class="item" data-price="${p[1]}" data-name="${p[0]}">
+<div class="hot" style="display:none">🔥 HOT</div>
+<h3>${p[0]}</h3>
 <div class="images">
-<img src="SOCKET1700M.jpg" onclick="showImage(this.src,this)">
-<img src="SOCKET1700M02.jpg" onclick="showImage(this.src,this)">
-<img src="SOCKET1700M03.jpg" onclick="showImage(this.src,this)">
+<img src="demo.jpg" onclick="showImage(this.src,this)">
+<img src="demo.jpg" onclick="showImage(this.src,this)">
+<img src="demo.jpg" onclick="showImage(this.src,this)">
 </div>
-<div class="price">Giá: 3.500.000</div>
-<div class="buy">Lượt mua: 32</div>
+<div class="price">Giá: ${p[1].toLocaleString()}</div>
+<div class="buy">Lượt mua: ${p[2]}</div>
 <div class="views">Lượt xem: <span class="view-count">0</span></div>
 <a href="https://zalo.me/0936569586" target="_blank">
 <button class="contact">Liên hệ Zalo 0936.569.586</button>
 </a>
 </div>
-
-<!-- SẢN PHẨM 3 -->
-<div class="item" data-price="3750000">
-<div class="hot">🔥 HOT</div>
-<h3>SOCKET1700H-CH-12VDC</h3>
-<div class="images">
-<img src="SOCKET1700H.jpg" onclick="showImage(this.src,this)">
-<img src="SOCKET1700H02.jpg" onclick="showImage(this.src,this)">
-<img src="SOCKET1700H03.jpg" onclick="showImage(this.src,this)">
-</div>
-<div class="price">Giá: 3.750.000</div>
-<div class="buy">Lượt mua: 72</div>
-<div class="views">Lượt xem: <span class="view-count">0</span></div>
-<a href="https://zalo.me/0936569586" target="_blank">
-<button class="contact">Liên hệ Zalo 0936.569.586</button>
-</a>
-</div>
-
-<!-- SẢN PHẨM 4 -->
-<div class="item" data-price="8500000">
-<h3>SOCKET9800G-LC-12/24VDC</h3>
-<div class="images">
-<img src="SOCKET6800G.jpg" onclick="showImage(this.src,this)">
-<img src="SOCKET6800G02.jpg" onclick="showImage(this.src,this)">
-<img src="SOCKET6800G03.jpg" onclick="showImage(this.src,this)">
-</div>
-<div class="price">Giá: 8.500.000</div>
-<div class="buy">Lượt mua: 8</div>
-<div class="views">Lượt xem: <span class="view-count">0</span></div>
-<a href="https://zalo.me/0936569586" target="_blank">
-<button class="contact">Liên hệ Zalo 0936.569.586</button>
-</a>
-</div>
-
-<!-- SẢN PHẨM 5 -->
-<div class="item" data-price="1850000">
-<div class="hot">🔥 HOT</div>
-<h3>SOCKET999-IGBT-12VDC</h3>
-<div class="images">
-<img src="SOCKET1700M.jpg" onclick="showImage(this.src,this)">
-<img src="SOCKET1700M02.jpg" onclick="showImage(this.src,this)">
-<img src="SOCKET1700M03.jpg" onclick="showImage(this.src,this)">
-</div>
-<div class="price">Giá: 1.850.000</div>
-<div class="buy">Lượt mua: 89</div>
-<div class="views">Lượt xem: <span class="view-count">0</span></div>
-<a href="https://zalo.me/0936569586" target="_blank">
-<button class="contact">Liên hệ Zalo 0936.569.586</button>
-</a>
-</div>
-
-<!-- SẢN PHẨM 6 -->
-<div class="item" data-price="1750000">
-<div class="hot">🔥 HOT</div>
-<h3>SOCKET999M-LC-12VDC</h3>
-<div class="images">
-<img src="SOCKET1700H.jpg" onclick="showImage(this.src,this)">
-<img src="SOCKET1700H02.jpg" onclick="showImage(this.src,this)">
-<img src="SOCKET1700H03.jpg" onclick="showImage(this.src,this)">
-</div>
-<div class="price">Giá: 1.750.000</div>
-<div class="buy">Lượt mua: 76</div>
-<div class="views">Lượt xem: <span class="view-count">0</span></div>
-<a href="https://zalo.me/0936569586" target="_blank">
-<button class="contact">Liên hệ Zalo 0936.569.586</button>
-</a>
-</div>
-
-<!-- SẢN PHẨM 7 -->
-<div class="item" data-price="7500000">
-<div class="hot">🔥 HOT</div>
-<h3>SOCKET4800G-LC-12VDC</h3>
-<div class="images">
-<img src="SOCKET6800G.jpg" onclick="showImage(this.src,this)">
-<img src="SOCKET6800G02.jpg" onclick="showImage(this.src,this)">
-<img src="SOCKET6800G03.jpg" onclick="showImage(this.src,this)">
-</div>
-<div class="price">Giá: 7.500.000</div>
-<div class="buy">Lượt mua: 92</div>
-<div class="views">Lượt xem: <span class="view-count">0</span></div>
-<a href="https://zalo.me/0936569586" target="_blank">
-<button class="contact">Liên hệ Zalo 0936.569.586</button>
-</a>
-</div>
+`);
+});
+</script>
 
 </div>
 
@@ -301,43 +217,46 @@ YOUTUBE: VĂN HƯỞNG HP
 
 <script>
 function showImage(src,element){
-    document.getElementById("popup").style.display="flex";
-    document.getElementById("popupImg").src=src;
+document.getElementById("popup").style.display="flex";
+document.getElementById("popupImg").src=src;
 
-    let product = element.closest(".item");
-    let viewElement = product.querySelector(".view-count");
-    let count = parseInt(viewElement.innerText);
-    count++;
-    viewElement.innerText = count;
-
-    let name = product.querySelector("h3").innerText;
-    localStorage.setItem("view_"+name,count);
+let product = element.closest(".item");
+let name = product.getAttribute("data-name");
+let count = parseInt(localStorage.getItem("view_"+name)) || 0;
+count++;
+localStorage.setItem("view_"+name,count);
+updateViews();
 }
 
 function closePopup(){
-    document.getElementById("popup").style.display="none";
+document.getElementById("popup").style.display="none";
 }
 
-window.onload = function(){
-    document.querySelectorAll(".item").forEach(product=>{
-        let name = product.querySelector("h3").innerText;
-        let saved = localStorage.getItem("view_"+name);
-        if(saved){
-            product.querySelector(".view-count").innerText = saved;
-        }
-    });
+function updateViews(){
+document.querySelectorAll(".item").forEach(product=>{
+let name = product.getAttribute("data-name");
+let count = parseInt(localStorage.getItem("view_"+name)) || Math.floor(Math.random()*50+20);
+localStorage.setItem("view_"+name,count);
+product.querySelector(".view-count").innerText = count;
+
+if(count>80){
+product.querySelector(".hot").style.display="block";
+}
+});
 }
 
 function filterPrice(type){
-    let items = document.querySelectorAll(".item");
-    items.forEach(item=>{
-        let price = parseInt(item.getAttribute("data-price"));
-        if(type=="low") item.style.display = price < 3000000 ? "block":"none";
-        else if(type=="mid") item.style.display = (price>=3000000 && price<=6000000) ? "block":"none";
-        else if(type=="high") item.style.display = price > 6000000 ? "block":"none";
-        else item.style.display="block";
-    });
+let items = document.querySelectorAll(".item");
+items.forEach(item=>{
+let price = parseInt(item.getAttribute("data-price"));
+if(type=="low") item.style.display = price < 3000000 ? "block":"none";
+else if(type=="mid") item.style.display = (price>=3000000 && price<=6000000) ? "block":"none";
+else if(type=="high") item.style.display = price > 6000000 ? "block":"none";
+else item.style.display="block";
+});
 }
+
+window.onload = updateViews;
 </script>
 
 </body>
