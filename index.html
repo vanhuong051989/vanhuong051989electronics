@@ -354,18 +354,25 @@ document.getElementById("popup").style.display="none";
 
 function updateViews(){
 document.querySelectorAll(".item").forEach(product=>{
+
 let name = product.getAttribute("data-name");
 let count = parseInt(localStorage.getItem("view_"+name));
 
 if(!count){
-count = Math.floor(Math.random()*300)+600;
+count = Math.floor(Math.random()*200)+500; // giảm xuống 500-700
 localStorage.setItem("view_"+name,count);
 }
 
 product.querySelector(".view-count").innerText = count;
 
-if(count > 1000){
+// 🔥 HOT chỉ khi > 750 VÀ lượt mua > 50
+let buyText = product.querySelector(".buy").innerText;
+let buyNumber = parseInt(buyText.replace(/\D/g,''));
+
+if(count > 750 && buyNumber > 50){
 product.querySelector(".hot").style.display="block";
+}else{
+product.querySelector(".hot").style.display="none";
 }
 });
 }
@@ -448,6 +455,7 @@ randomInterval();
 
 </body>
 </html>
+
 
 
 
