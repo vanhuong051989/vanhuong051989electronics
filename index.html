@@ -20,6 +20,16 @@ body{
     font-weight:bold;
 }
 
+.section-title{
+    font-size:22px;
+    font-weight:bold;
+    margin:30px 40px 10px 40px;
+    padding:10px 15px;
+    border-left:6px solid #0d47a1;
+    background:#e3f2fd;
+    border-radius:6px;
+}
+
 .filter{
     text-align:center;
     margin:20px;
@@ -88,23 +98,9 @@ body{
     cursor:pointer;
 }
 
-.price{
-    color:#d50000;
-    font-weight:bold;
-    margin-top:10px;
-}
-
-.buy{
-    color:#2e7d32;
-    font-weight:bold;
-    margin-top:5px;
-}
-
-.views{
-    color:#1565c0;
-    font-weight:bold;
-    margin-top:5px;
-}
+.price{ color:#d50000; font-weight:bold; margin-top:10px; }
+.buy{ color:#2e7d32; font-weight:bold; margin-top:5px; }
+.views{ color:#1565c0; font-weight:bold; margin-top:5px; }
 
 .contact{
     margin-top:10px;
@@ -150,14 +146,28 @@ body{
     color:white;
     cursor:pointer;
 }
+
+/* Popup hoạt động */
+#activityPopup{
+    position:fixed;
+    bottom:20px;
+    left:20px;
+    background:#0f172a;
+    color:white;
+    padding:12px 18px;
+    border-radius:10px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.4);
+    font-size:14px;
+    z-index:9999;
+    display:none;
+    border-left:4px solid #00ff99;
+}
 </style>
 </head>
 
 <body>
 
-<div class="header">
-⚡ HUONG ELECTRONICS ⚡
-</div>
+<div class="header">⚡ HUONG ELECTRONICS ⚡</div>
 
 <div class="filter">
 <button onclick="filterPrice('all')">Tất cả</button>
@@ -166,6 +176,8 @@ body{
 <button onclick="filterPrice('high')">Trên 6 triệu</button>
 </div>
 
+<!-- ================= MÁY THÀNH PHẨM ================= -->
+<div class="section-title">🔵 MÁY THÀNH PHẨM</div>
 <div class="products">
 
 <!-- SP1 -->
@@ -287,8 +299,14 @@ body{
 </a>
 </div>
 
+</div>
+
+<!-- ================= LINH KIỆN ĐIỆN TỬ ================= -->
+<div class="section-title">🟢 LINH KIỆN ĐIỆN TỬ</div>
+<div class="products">
+
 <!-- SP8 -->
-<div class="item" data-price="3500000" data-name="sp8">
+<div class="item" data-price="300000" data-name="sp8">
 <div class="hot">🔥 HOT</div>
 <h3>PCB-SOCKET 4800G-6800G 20FET LON</h3>
 <div class="images">
@@ -301,8 +319,9 @@ body{
 <button class="contact">Liên hệ Zalo 0936.569.586</button>
 </a>
 </div>
-     <!-- SP9 -->
-<div class="item" data-price="7500000" data-name="sp9">
+
+<!-- SP9 -->
+<div class="item" data-price="300000" data-name="sp9">
 <div class="hot">🔥 HOT</div>
 <h3>PCB-SOCKET 4800G-6800G 32FET</h3>
 <div class="images">
@@ -316,8 +335,8 @@ body{
 </a>
 </div>
 
-        <!-- SP10 -->
-<div class="item" data-price="7500000" data-name="sp9">
+<!-- SP10 -->
+<div class="item" data-price="450000" data-name="sp10">
 <div class="hot">🔥 HOT</div>
 <h3>EC60-SAMUS-150TURN</h3>
 <div class="images">
@@ -330,6 +349,7 @@ body{
 <button class="contact">Liên hệ Zalo 0936.569.586</button>
 </a>
 </div>
+
 </div>
 
 <div class="footer">
@@ -345,6 +365,8 @@ YOUTUBE: VĂN HƯỞNG HP
 <img id="popupImg">
 </div>
 
+<div id="activityPopup"></div>
+
 <script>
 function showImage(element){
 document.getElementById("popup").style.display="flex";
@@ -355,9 +377,8 @@ let name = product.getAttribute("data-name");
 let count = parseInt(localStorage.getItem("view_"+name));
 
 if(!count){
-count = Math.floor(Math.random()*300)+600;
+count = Math.floor(Math.random()*300)+650;
 }
-
 count++;
 localStorage.setItem("view_"+name,count);
 updateViews();
@@ -369,18 +390,16 @@ document.getElementById("popup").style.display="none";
 
 function updateViews(){
 document.querySelectorAll(".item").forEach(product=>{
-
 let name = product.getAttribute("data-name");
 let count = parseInt(localStorage.getItem("view_"+name));
 
 if(!count){
-count = Math.floor(Math.random()*200)+500; // giảm xuống 500-700
+count = Math.floor(Math.random()*300)+650;
 localStorage.setItem("view_"+name,count);
 }
 
 product.querySelector(".view-count").innerText = count;
 
-// 🔥 HOT chỉ khi > 750 VÀ lượt mua > 50
 let buyText = product.querySelector(".buy").innerText;
 let buyNumber = parseInt(buyText.replace(/\D/g,''));
 
@@ -404,65 +423,23 @@ else item.style.display="block";
 }
 
 window.onload = updateViews;
-</script>
-    <!-- POPUP HOẠT ĐỘNG -->
-<div id="activityPopup"></div>
 
-<style>
-#activityPopup{
-    position:fixed;
-    bottom:20px;
-    left:20px;
-    background:#0f172a;
-    color:white;
-    padding:12px 18px;
-    border-radius:10px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.4);
-    font-size:14px;
-    z-index:9999;
-    display:none;
-    animation:fadeIn 0.5s ease;
-    border-left:4px solid #00ff99;
-}
-
-@keyframes fadeIn{
-    from{opacity:0; transform:translateY(10px);}
-    to{opacity:1; transform:translateY(0);}
-}
-</style>
-
-<script>
-const popup = document.getElementById("activityPopup");
+/* Popup hoạt động */
+const popupActivity = document.getElementById("activityPopup");
 
 function showPopup(){
-    const randomType = Math.floor(Math.random()*2);
-
-    let message;
-
-    if(randomType === 0){
-        // Người đang xem
-        const viewers = Math.floor(Math.random()*25)+15;
-        message = `👁️ Hiện có ${viewers} người đang xem sản phẩm`;
-    }else{
-        // Bán chạy
-        message = `🔥 Sản phẩm SOCKET 9800G 12/24 đang được quan tâm nhiều tuần này`;
-    }
-
-    popup.innerHTML = message;
-    popup.style.display = "block";
-
-    setTimeout(()=>{
-        popup.style.display = "none";
-    },4000);
+const viewers = Math.floor(Math.random()*25)+15;
+popupActivity.innerHTML = `👁️ Hiện có ${viewers} người đang xem sản phẩm`;
+popupActivity.style.display="block";
+setTimeout(()=>{popupActivity.style.display="none";},4000);
 }
 
-// 25–45 giây xuất hiện 1 lần
 function randomInterval(){
-    const time = Math.floor(Math.random()*20000)+25000;
-    setTimeout(()=>{
-        showPopup();
-        randomInterval();
-    },time);
+const time = Math.floor(Math.random()*20000)+25000;
+setTimeout(()=>{
+showPopup();
+randomInterval();
+},time);
 }
 
 randomInterval();
@@ -470,13 +447,3 @@ randomInterval();
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
