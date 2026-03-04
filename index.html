@@ -641,7 +641,7 @@ body{
 <img src="BIEN AP TZ 85-15.jpg" onclick="showImage(this)">
 </div>
 <div class="price">Giá: 350.000</div>
-<div class="buy">Lượt mua: 50</div>
+<div class="buy">Lượt mua: 55</div>
 <div class="views">Lượt xem: <span class="view-count">0</span></div>
 <a href="https://zalo.me/0936569586" target="_blank">
 <button class="contact">Liên hệ Zalo 0936.569.586</button>
@@ -701,7 +701,7 @@ product.querySelector(".view-count").innerText = count;
 let buyText = product.querySelector(".buy").innerText;
 let buyNumber = parseInt(buyText.replace(/\D/g,''));
 
-if(count > 750 && buyNumber > 50){
+if(count > 650 && buyNumber > 50){
 product.querySelector(".hot").style.display="block";
 }else{
 product.querySelector(".hot").style.display="none";
@@ -745,6 +745,7 @@ randomInterval();
 
 </body>
 </html>
+
 
 
 
