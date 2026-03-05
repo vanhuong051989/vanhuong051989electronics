@@ -760,12 +760,9 @@ const productNames = [
 ];
 
 function showImage(element){
-document.getElementById("popup").style.display="flex";
-document.getElementById("popupImg").src=element.src;
+    document.getElementById("popup").style.display="flex";
+    document.getElementById("popupImg").src=element.src;
 
-let product = element.closest(".item");
-let name = product.getAttribute("data-name");
-let count = parseInt(localStorage.getItem("view_"+name));
-
-if(!count){
-count = Math.floor(Math.random()*300
+    let product = element.closest(".item");
+    let name = product.getAttribute("data-name");
+    let count = parseInt(l
