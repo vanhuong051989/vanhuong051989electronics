@@ -815,8 +815,8 @@ function updateViews(){
         let buyText = product.querySelector(".buy").innerText;
         let buyNumber = parseInt(buyText.replace(/\D/g,''));
         
-        // Hiển thị HOT nếu bán trên 30 sản phẩm
-        if(buyNumber > 30){
+        // Hiển thị HOT nếu bán trên 50 sản phẩm
+        if(buyNumber > 50){
             product.querySelector(".hot").style.display="block";
         }else{
             product.querySelector(".hot").style.display="none";
@@ -883,5 +883,6 @@ window.onload = function(){
     randomBuyerInterval();
 };
 </script>
+
 
 
