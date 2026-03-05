@@ -771,3 +771,100 @@ function showImage(element){
         count = Math.floor(Math.random()*300)+650; // Bắt đầu từ 650-950 lượt xem
     }
     count++;
+    localStorage.setItem("view_"+name, count);
+    updateViews();
+}
+
+function closePopup(){
+    document.getElementById("popup").style.display="none";
+}
+
+function updateViews(){
+    document.querySelectorAll(".item").forEach(product=>{
+        let name = product.getAttribute("data-name");
+        let count = parseInt(localStorage.getItem("view_"+name));
+        
+        // Nếu chưa có lượt xem trong localStorage, tạo mới từ 650-950
+        if(!count){
+            count = Math.floor(Math.random()*300)+650; // 650-950
+            localStorage.setItem("view_"+name, count);
+        }
+        
+        // Cập nhật hiển thị lượt xem
+        let viewElement = product.querySelector(".view-count");
+        if(viewElement){
+            viewElement.innerText = count.toLocaleString('vi-VN');
+        }
+
+        // Lấy số lượt mua từ text
+        let buyText = product.querySelector(".buy").innerText;
+        let buyNumber = parseInt(buyText.replace(/\D/g,''));
+        
+        // Hiển thị HOT nếu bán trên 30 sản phẩm
+        if(buyNumber > 30){
+            product.querySelector(".hot").style.display="block";
+        }else{
+            product.querySelector(".hot").style.display="none";
+        }
+    });
+}
+
+function filterPrice(type){
+    let items = document.querySelectorAll(".item");
+    items.forEach(item=>{
+        let price = parseInt(item.getAttribute("data-price"));
+        if(type=="low") item.style.display = price < 3000000 ? "block":"none";
+        else if(type=="mid") item.style.display = (price>=3000000 && price<=6000000) ? "block":"none";
+        else if(type=="high") item.style.display = price > 6000000 ? "block":"none";
+        else item.style.display="block";
+    });
+}
+
+// Popup người xem
+const popupActivity = document.getElementById("activityPopup");
+
+function showPopup(){
+    const viewers = Math.floor(Math.random()*25)+15; // 15-40 người
+    popupActivity.innerHTML = `👁️ Hiện có ${viewers} người đang xem sản phẩm`;
+    popupActivity.style.display="block";
+    setTimeout(()=>{popupActivity.style.display="none";}, 7000); // Hiện trong 7 giây
+}
+
+// Popup người mua
+const buyerPopup = document.getElementById("buyerPopup");
+
+function showBuyerPopup(){
+    const buyers = Math.floor(Math.random()*5)+3; // 3-7 người
+    const randomBuyer = buyerNames[Math.floor(Math.random() * buyerNames.length)];
+    const randomProduct = productNames[Math.floor(Math.random() * productNames.length)];
+    
+    buyerPopup.innerHTML = `🛒 <span class="buyer-name">${randomBuyer}</span> vừa mua <span class="buyer-name">${randomProduct}</span> (Cùng ${buyers} người khác)`;
+    buyerPopup.style.display="block";
+    setTimeout(()=>{buyerPopup.style.display="none";}, 7000); // Hiện trong 7 giây
+}
+
+function randomInterval(){
+    // Popup người xem: 30-50 giây hiện 1 lần
+    const time = Math.floor(Math.random()*20000)+30000; // 30-50 giây
+    setTimeout(()=>{
+        showPopup();
+        randomInterval();
+    }, time);
+}
+
+function randomBuyerInterval(){
+    // Popup người mua: 20-40 giây hiện 1 lần
+    const time = Math.floor(Math.random()*20000)+20000; // 20-40 giây
+    setTimeout(()=>{
+        showBuyerPopup();
+        randomBuyerInterval();
+    }, time);
+}
+
+// Khởi tạo khi trang load
+window.onload = function(){
+    updateViews();
+    randomInterval();
+    randomBuyerInterval();
+};
+</script>
