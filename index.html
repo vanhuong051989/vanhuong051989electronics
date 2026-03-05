@@ -172,13 +172,14 @@ body{
     left:20px;
     background:#0f172a;
     color:white;
-    padding:12px 18px;
+    padding:15px 25px;
     border-radius:10px;
     box-shadow:0 5px 20px rgba(0,0,0,0.4);
-    font-size:14px;
+    font-size:16px;
     z-index:9999;
     display:none;
     border-left:4px solid #00ff99;
+    font-weight:bold;
 }
 
 /* Popup người mua */
@@ -188,13 +189,14 @@ body{
     right:20px;
     background:#0f172a;
     color:white;
-    padding:12px 18px;
+    padding:15px 25px;
     border-radius:10px;
     box-shadow:0 5px 20px rgba(0,0,0,0.4);
-    font-size:14px;
+    font-size:16px;
     z-index:9999;
     display:none;
     border-left:4px solid #ff9900;
+    font-weight:bold;
 }
 
 .buyer-name{
@@ -209,7 +211,7 @@ body{
 <div class="header">
     <div class="header-top">
         <div class="header-title">⚡ HUONG ELECTRONICS ⚡</div>
-        <div style="font-size: 32px; color: #ffeb3b; font-weight: bold; text-align: center; flex: 1; text-shadow: 3px 3px 6px rgba(0,0,0,0.5); letter-spacing: 2px; animation: glow 2s infinite;">
+        <div style="font-size: 32px; color: #ffeb3b; font-weight: bold; text-align: center; flex: 1; text-shadow: 3px 3px 6px rgba(0,0,0,0.5); letter-spacing: 2px;">
             ⭐ CUNG CẤP LINH KIỆN CHÍNH HÃNG SAMUS ⭐
         </div>
         <div class="header-right">
@@ -712,7 +714,6 @@ body{
         YOUTUBE: VĂN HƯỞNG HP
     </div>
     
-    <!-- THÊM LOGO CHỮ Ở GIỮA -->
     <div style="font-size: 38px; font-weight: bold; color: #ffeb3b; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
         HUONG <span style="color: white;">ELECTRONICS</span>
     </div>
@@ -724,7 +725,6 @@ body{
     </div>
 </div>
 
-<!-- Thêm dòng trang trí dưới cùng -->
 <div style="margin-top: 20px; text-align: center; font-size: 18px; border-top: 1px solid #ffeb3b; padding-top: 15px;">
     🏠 HUONG ELECTRONICS - ĐỊA CHỈ TIN CẬY CỦA MỌI NHÀ 🏠
 </div>
@@ -765,4 +765,15 @@ function showImage(element){
 
     let product = element.closest(".item");
     let name = product.getAttribute("data-name");
-    let count = parseInt(l
+    let count = parseInt(localStorage.getItem("view_"+name));
+
+    if(!count){
+        count = Math.floor(Math.random()*300)+650; // Bắt đầu từ 650-950 lượt xem
+    }
+    count++;
+    localStorage.setItem("view_"+name, count);
+    updateViews();
+}
+
+function closePopup(){
+    document.getElementById("pop
