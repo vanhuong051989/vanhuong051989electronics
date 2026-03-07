@@ -207,7 +207,46 @@ body{
 </head>
 
 <body>
+<!-- THÊM 3 DÒNG NÀY VÀO SAU THẺ <body> HOẶC TRƯỚC HEADER -->
+<div style="position: fixed; top: 10px; left: 10px; z-index: 9999; display: flex; flex-direction: column; gap: 5px;">
+    <!-- Liên hệ điện thoại -->
+    <a href="tel:0936569586" style="background: #4CAF50; color: white; padding: 8px 15px; border-radius: 30px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 8px; animation: bounce 2s infinite;">
+        <span style="font-size: 20px;">👉</span>
+        <span>📞 GỌI NGAY: 0936.569.586</span>
+    </a>
+    
+    <!-- Liên hệ Zalo -->
+    <a href="https://zalo.me/0936569586" target="_blank" style="background: #0068ff; color: white; padding: 8px 15px; border-radius: 30px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 8px; animation: bounce 2s infinite; animation-delay: 0.3s;">
+        <span style="font-size: 20px;">👉</span>
+        <span>💬 ZALO: 0936.569.586</span>
+    </a>
+    
+    <!-- Liên hệ Facebook -->
+    <a href="https://www.facebook.com/vuvanhuong.hp" target="_blank" style="background: #1877f2; color: white; padding: 8px 15px; border-radius: 30px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 8px; animation: bounce 2s infinite; animation-delay: 0.6s;">
+        <span style="font-size: 20px;">👉</span>
+        <span>📱 FACEBOOK: VŨ VĂN HƯỞNG</span>
+    </a>
+</div>
 
+<!-- THÊM CSS CHO HIỆU ỨNG BOUNCE VÀO TRONG THẺ STYLE -->
+<style>
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-10px);}
+    60% {transform: translateY(-5px);}
+}
+
+/* Responsive cho mobile */
+@media (max-width: 768px) {
+    div[style*="position: fixed; top: 10px; left: 10px;"] a {
+        padding: 5px 10px !important;
+        font-size: 12px !important;
+    }
+    div[style*="position: fixed; top: 10px; left: 10px;"] span {
+        font-size: 16px !important;
+    }
+}
+</style>
 <div class="header">
     <div class="header-top">
         <div class="header-title">⚡ HUONG ELECTRONICS ⚡</div>
@@ -883,6 +922,7 @@ window.onload = function(){
     randomBuyerInterval();
 };
 </script>
+
 
 
 
